@@ -8,6 +8,9 @@
     padding: 0;
     box-sizing: border-box;/*para di dumagdag ang padding sa width*/
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     font-family: 'Nunito', sans-serif;
     background: #000;
@@ -107,14 +110,152 @@ section.gallery .gallery-container{
 }
 section.gallery .gallery-container a:first-child{
     grid-area: box1;
+    padding:1rem;
 }
 section.gallery .gallery-container a:nth-child(2){
     grid-area:box2;
+    padding:1rem;
 }
 section.gallery .gallery-container a:last-child{
     grid-area: box3;
+    padding:1rem;
+}
+.img-container{
+    position: relative;
+    display: inline-block;
+}
+.img-container .text-container{
+    opacity: 0;
+    font-size: 2rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    transition: all .3s ease-in-out;
+}
+.img-container .text-container:hover{
+    opacity: 1;
+}
+
+.about-section{
+    position: relative;
+    background: url(./img/about-bg.jpg) no-repeat bottom center/cover;
+    height: 600px;
+}
+.about-section-inner{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    max-width: 860px;
+    padding: 5rem 0;
+}
+.about-section-inner h3{
+    font-size: 4rem;
+    line-height: 4rem;
+}
+.about-section-inner h2{
+    font-size: 2.5rem;
+    line-height: 5rem;
+    margin-top: 1rem;
+}
+.about-section-inner p{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+/* News letter Section */
+.news-letter{
+    width: 100%;
+    height: 400px;
+    background: rgb(32, 32, 32);
+}
+.news-letter-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+}
+.news-letter-inner h2{
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+.email-form{
+    width: 100%;
+    display: inline-block;
+    background: #555;
+    position: relative;
+    border-radius: 20px;
+    line-height: 0;
+    margin-top: 1rem;
+}
+.email-form .form-control{
+    display: inline-block;
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    color: #ddd;
+    background: transparent;
+    margin: 0;
+    padding: 0 3rem 0 1.5rem;
+    width: 100%;
+    height: 45px;
+    border-radius: 20px;
+}
+.email-form .submit{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #eee;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    color: #333;
+    cursor: pointer;
+    border-radius: 0 20px 20px 0;
+}
+/* Footer */
+.footer{
+    max-width: 75%;
+    margin: 2rem auto;
+    overflow: auto;
+}
+.footer, .footer a{
+    color: #999;
+    font-size: 0.9rem;
+}
+.footer .footer-col{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 2rem;
+}
+.footer li{
+    line-height: 1.9rem;
 }
 /* Utilities */
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
 .btn{
     display: inline-block;
     background:var(--primary-color) ;
@@ -147,4 +288,42 @@ section.gallery .gallery-container a:last-child{
 }
 .fa-fw{
  margin-left: 1rem;
+}
+
+@media (max-width:700px){
+    .header-top a{
+        top: 90%;
+        right: 25%;
+        transform: translate(-90%,-25%);
+    }
+    .header-content{
+        margin-top: 25%;
+    }
+    .header-content h1{
+        font-size: 4.5rem;
+        line-height: 4rem;
+    }
+    .header-content p{
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
+    .btn-xl{
+        font-size: 1rem;
+        padding: 0.6rem 2rem;
+    }
+    section.gallery .gallery-container{
+        grid-template-columns: 1fr;
+        grid-template-areas: "box1" "box2" "box3";
+    }
+    .about-section-inner h2{
+        font-size: 2rem;
+        line-height: 2rem;
+        
+    }
+    .footer .footer-col{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+
 }
